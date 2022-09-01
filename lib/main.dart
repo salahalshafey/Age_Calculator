@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink)
             .copyWith(secondary: Colors.grey.shade200),
       ),
-      home: const MyHomePage(title: 'Age Calculator'),
+      home: const MyHomePage(title: 'AgeCalculator'),
     );
   }
 }
