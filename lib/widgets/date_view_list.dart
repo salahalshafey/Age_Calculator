@@ -1,4 +1,4 @@
-import 'package:age_calculator/widgets/date_view.dart';
+import 'package:my_age/widgets/date_view.dart';
 import 'package:flutter/material.dart';
 
 class DateViewList extends StatelessWidget {

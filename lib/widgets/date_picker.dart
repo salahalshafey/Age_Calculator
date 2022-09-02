@@ -1,6 +1,4 @@
 import 'package:intl/intl.dart';
-import 'package:time/time.dart';
-
 import 'package:flutter/material.dart';
 
 class DatePiker extends StatefulWidget {
@@ -14,18 +12,18 @@ class DatePiker extends StatefulWidget {
 
 class _DateOfBirthState extends State<DatePiker> {
   DateTime? date;
-  int _counter = 0;
 
   void _showDateTimePicker(BuildContext ctx) {
     showDatePicker(
       context: ctx,
-      initialDate: DateTime(2002, 10, 29),
+      initialDate: date ?? DateTime.now(), // DateTime(2002, 10, 29)
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     ).then((pickedDate) {
       setState(() {
         if (pickedDate == null) return;
         date = pickedDate;
+        widget.addBirthDate(date);
       });
     });
   }
@@ -78,20 +76,6 @@ class _DateOfBirthState extends State<DatePiker> {
             ),
           ),
         ),
-        ElevatedButton(
-          onPressed: () async {
-            if (date == null || _counter > 0) {
-              return;
-            }
-
-            _counter++;
-            while (true) {
-              await 1.seconds.delay;
-              widget.addBirthDate(date);
-            }
-          },
-          child: const Text('CALCULATE'),
-        )
       ],
     );
   }

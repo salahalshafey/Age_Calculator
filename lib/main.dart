@@ -1,8 +1,9 @@
-import 'package:age_calculator/widgets/date_picker.dart';
-import 'package:age_calculator/widgets/day_when_you_born.dart';
-import 'package:age_calculator/widgets/date_view_list.dart';
+import 'package:my_age/widgets/date_picker.dart';
+import 'package:my_age/widgets/day_when_you_born.dart';
+import 'package:my_age/widgets/date_view_list.dart';
 
 import 'package:flutter/material.dart';
+import 'package:my_age/widgets/next_birth_day_live.dart';
 
 import './models/person.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Age Calculator',
+      title: 'My Age',
       theme: ThemeData(
         // primarySwatch: Colors.green,
         textTheme: ThemeData.light().textTheme.copyWith(
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink)
             .copyWith(secondary: Colors.grey.shade200),
       ),
-      home: const MyHomePage(title: 'AgeCalculator'),
+      home: const MyHomePage(title: 'My Age'),
     );
   }
 }
@@ -51,9 +52,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Person _person = const Person();
+  DateTime? theDate;
 
   void _addBirthDate(DateTime? date) {
     setState(() {
+      theDate = date;
       _person = Person(date);
     });
   }
@@ -76,6 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
         width: width,
         alignment: Alignment.topCenter,
         child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
@@ -84,6 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
               DayWhenYouBorn(_person.dayOfBorn, _person.hijriDate),
               DateViewList(
                   'NEXT BIRTHDAY', _person.remainingTimeToNextBirthDay),
+              const SizedBox(height: 8),
+              NextBirthDayLive(_addBirthDate, theDate),
             ],
           ),
         ),

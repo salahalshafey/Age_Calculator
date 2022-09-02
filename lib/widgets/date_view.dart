@@ -27,12 +27,12 @@ class DateView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             FittedBox(
-              child: Text(
+              child: SelectableText(
                 title,
                 style: const TextStyle(fontSize: 18),
               ),
             ),
-            Text(
+            SelectableText(
               count,
               style: TextStyle(
                 fontSize: 18,

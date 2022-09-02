@@ -34,14 +34,14 @@ class DayWhenYouBorn extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text(
+              SelectableText(
                 dayOfBorn,
                 style: TextStyle(
                   fontSize: 18,
                   color: Theme.of(context).colorScheme.primary,
                 ),
               ),
-              Text(
+              SelectableText(
                 hijriDateOfBorn,
                 style: TextStyle(
                   fontSize: 18,

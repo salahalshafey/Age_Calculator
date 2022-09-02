@@ -1,4 +1,4 @@
-package com.example.age_calculator
+package com.example.my_age
 
 import io.flutter.embedding.android.FlutterActivity
 
