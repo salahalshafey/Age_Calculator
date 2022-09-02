@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink)
             .copyWith(secondary: Colors.grey.shade200),
       ),
-      home: const HomeScreen(title: 'My Age'),
+      home: const HomeScreen(title: 'MyAge'),
     );
   }
 }
