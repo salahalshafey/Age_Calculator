@@ -20,8 +20,8 @@ class _DateOfBirthState extends State<DatePiker> {
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     ).then((pickedDate) {
+      if (pickedDate == null) return;
       setState(() {
-        if (pickedDate == null) return;
         date = pickedDate;
         widget.addBirthDate(date);
       });
@@ -65,12 +65,12 @@ class _DateOfBirthState extends State<DatePiker> {
                   ),
                 ),
                 IconButton(
-                  onPressed: () => _showDateTimePicker(context),
+                  tooltip: 'Pick a Date',
                   icon: Icon(
                     Icons.date_range_rounded,
                     color: Theme.of(context).colorScheme.primary,
                   ),
-                  tooltip: 'Pick a Date',
+                  onPressed: () => _showDateTimePicker(context),
                 ),
               ],
             ),

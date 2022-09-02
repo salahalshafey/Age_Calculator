@@ -11,7 +11,7 @@ class Person {
       return {'years': 0, 'months': 0, 'days': 0};
     }
 
-    return differenceBetweenDates(DateTime.now(), birthDate!);
+    return _differenceBetweenDates(DateTime.now(), birthDate!);
   }
 
   String get dayOfBorn {
@@ -52,7 +52,7 @@ class Person {
     final nextYear = totalAge['years']! + 1;
     final nextBirthDay = birthDate!.copyWith(year: birthDate!.year + nextYear);
 
-    final m = differenceBetweenDates(nextBirthDay, DateTime.now());
+    final m = _differenceBetweenDates(nextBirthDay, DateTime.now());
     if (m['years'] == 1) {
       m['years'] = 0;
       m['months'] = 11;
@@ -81,7 +81,7 @@ class Person {
     };
   }
 
-  Map<String, int> differenceBetweenDates(DateTime date1, DateTime date2) {
+  Map<String, int> _differenceBetweenDates(DateTime date1, DateTime date2) {
     List<int> d1 = [date1.day, date1.month, date1.year];
     List<int> d2 = [date2.day, date2.month, date2.year];
     Map<String, int> res = {'years': 0, 'months': 0, 'days': 0};
