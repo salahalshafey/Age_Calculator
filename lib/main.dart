@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         textTheme: ThemeData.light().textTheme.copyWith(
               headline1: const TextStyle(
                 // fontFamily: 'OpenSans',
-                fontSize: 18,
+                fontSize: 17,
                 // fontWeight: FontWeight.bold,
               ),
               headline2: const TextStyle(
